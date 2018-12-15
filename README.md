@@ -1,13 +1,13 @@
 ##  git常用命令 
-git rm -r ./aa.text  删除文件文件夹
+$ git rm -r ./aa.text  // 删除文件文件夹
 <br/>  
-git add ./aa.text  添加工作区文件到临时区
+$ git add ./aa.text  // 添加工作区文件到临时区
 <br/>
-git commit -m '第一次提交'   把临时区的文件提交到当前版本库分支
+$ git commit -m '第一次提交'  //  把临时区的文件提交到当前版本库分支
 <br/>
-git push -u origin master  把版本库版提交到线上
+$ git push -u origin master  // 把版本库版提交到线上
 <br/>
-git pull 同步线上版本
+$ git pull // 同步线上版本
 
 
 ### 1、创建版本库    
