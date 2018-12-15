@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "nodemon": "nodemon  ./bin/www",
-    "start": "npm run nodemon",
+    "start": " concurrently  \"npm run nodemon\"  \"npm run watch\"    ",
+    "watch": "webpack --watch",
+    "build": "webpack",
     "debug": "set DEBUG=* & node ./bin/www"
   },
   "dependencies": {
@@ -17,6 +19,16 @@
     "morgan": "~1.9.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "clean-webpack-plugin": "^1.0.0",
+    "concurrently": "^4.1.0",
+    "css-loader": "^2.0.1",
+    "file-loader": "^2.0.0",
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.9",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
   }
 }

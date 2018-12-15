@@ -38,3 +38,87 @@ file >> settings >> language >> nodejs and npm     enable nodejs 插件
 `"nodemon": "nodemon  ./bin/www",
 <br/>
 "start": "npm run nodemon",`
+### 5、添加webpack  编译es6和sass
+> 使用 JetBrains WebStorm IDE 时，你可能会发现保存修改过的文件，并不会按照预期触发观察者。尝试在设置中禁用安全写入(safe write)选项，该选项确定在原文件被覆盖之前，文件是否先保存到临时位置：取消选中 File > Settings... > System Settings > Use "safe write" (save changes to a temporary file first)
+
+<br/>
+安装webpack一堆包和  一个npm可以运行多命令的包
+<br/>
+
+```
+    "clean-webpack-plugin": "^1.0.0", // 清除文件件
+    "concurrently": "^4.1.0", // npm  一个命令运行多个命令
+    "css-loader": "^2.0.1", 
+    "file-loader": "^2.0.0", 
+    "mini-css-extract-plugin": "^0.5.0", // js中分离出css
+    "node-sass": "^4.11.0", 
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.27.1", 
+    "webpack-cli": "^3.1.2" // webpack命令
+```
+
+****
+
+创建前端的源码文件 src
+
+*****
+
+配置 webpack.config.js
+
+```
+const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+module.exports = {
+  entry: {
+    index: path.resolve(__dirname, './src/index/index.js')
+  },
+  output: {
+    publicPath: '/',
+    path: path.resolve(__dirname, './public'),
+    filename: './js/[name].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              publicPath: '../img',
+              outputPath: './img'
+            }
+          }
+        ],
+      },
+    ]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "./css/[name].css",
+    }),
+    new CleanWebpackPlugin([path.resolve(__dirname,'./public/js'),path.resolve(__dirname,'./public/css')]),
+  ],
+  mode: 'development',
+  devtool: 'inline-source-map',
+  stats: 'errors-only',
+  watchOptions: {
+    poll: 100,  // 通过传递 true 开启 polling，或者指定毫秒为单位进行轮询。
+    aggregateTimeout: 100,  // 防止重复按键保存，100毫米内算按键一次保存
+    ignored: ['public', 'node_modules','.idea','routes','views'],  //不监测
+  }
+};
+```
+
+
