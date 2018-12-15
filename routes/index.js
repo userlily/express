@@ -3,7 +3,11 @@ let router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express-姊妹湖' });
+  if(!req.session.name){
+    console.log(req.ip)
+    req.session.name = '首页'
+  }
+  res.render('index', { title: `Express-姊妹湖-session${req.session.name}` });
 });
 
 
