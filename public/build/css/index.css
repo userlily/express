@@ -1,0 +1,18 @@
+@charset "UTF-8";
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+body {
+  margin: 0;
+  padding: 50px;
+  box-sizing: border-box;
+  height: 100%;
+  font: 14px "微软雅黑", Helvetica, Arial, sans-serif;
+  background: url(../img/10c9d3ae64bf64a3ae4cdda603f4a4fc.jpg) no-repeat;
+  background-size: 100% 100%;
+  color: #000; }
+
+
+/*# sourceMappingURL=index.css.map*/

@@ -7,8 +7,8 @@ module.exports = {
     index: path.resolve(__dirname, './src/index/index.js')
   },
   output: {
-    publicPath: '/',
-    path: path.resolve(__dirname, './public'),
+    publicPath: '/', //不用html模板的方式和这和路径就没有什么关系了
+    path: path.resolve(__dirname, './public/build'),
     filename: './js/[name].js'
   },
   module: {
@@ -27,8 +27,8 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              publicPath: '../img',
-              outputPath: './img'
+              publicPath: '../img', // 相对css的目录
+              outputPath: './img',  // 相对output的目录
             }
           }
         ],
@@ -39,10 +39,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "./css/[name].css",
     }),
-    new CleanWebpackPlugin([path.resolve(__dirname,'./public/js'),path.resolve(__dirname,'./public/css')]),
+    new CleanWebpackPlugin([path.resolve(__dirname,'./public/build')]),
   ],
   mode: 'development',
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   stats: 'errors-only',
   watchOptions: {
     poll: 100,  // 通过传递 true 开启 polling，或者指定毫秒为单位进行轮询。
