@@ -9,6 +9,7 @@ $ git push -u origin master  // 把版本库版提交到线上
 <br/>
 $ git pull // 同步线上版本
 
+## 项目创建过程
 
 ### 1、创建版本库    
 $  git remote add origin git@github.com:userlily/express.git
@@ -27,3 +28,12 @@ $ npm  i  &&  npm start
 $ file >> settings >> plugins  搜索安装 nodejs
 <br/>
 $ file >> settings >> language >> nodejs and npm     enable nodejs 插件  
+### 4、添加文件修改自动重启服务器功能
+`$ npm  i nodemon --save-dev`  
+</br>
+添加nodemog.json 文件对文件检测配置
+<br/>
+在package.json中修改
+<br/>
+`"nodemon": "nodemon  ./bin/www",
+ "start": "npm run nodemon",`
