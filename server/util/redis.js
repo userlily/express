@@ -6,7 +6,7 @@
  * redis连接，常用方法的封装
  *
  */
-    const redis = require("redis")
+    const redis = require("server/util/redis")
     const crypto=require("crypto")
     let client = redis.createClient();
     // if you'd like to select database 3, instead of 0 (default), call

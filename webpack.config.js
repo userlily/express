@@ -4,7 +4,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: path.resolve(__dirname, './src/index/index.js')
+    index: path.resolve(__dirname, './src/index/index.js'),
+    login: path.resolve(__dirname, './src/login/index.js'),
   },
   output: {
     publicPath: '/', //不用html模板的方式和这和路径就没有什么关系了

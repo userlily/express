@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "init_sql": "node ./init/index.js",
     "nodemon": "nodemon  ./bin/www",
     "start": " concurrently  \"npm run nodemon\"  \"npm run watch\"    ",
     "watch": "webpack --watch",
@@ -18,7 +19,9 @@
     "express": "~4.16.0",
     "express-session": "^1.15.6",
     "http-errors": "~1.6.2",
-    "morgan": "~1.9.0"
+    "morgan": "~1.9.0",
+    "mysql": "^2.16.0",
+    "validator": "^10.9.0"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^1.0.0",

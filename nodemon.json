@@ -3,7 +3,8 @@
   "ignore": [
     ".git",
     "node_modules/**/node_modules",
-    ".idea"
+    ".idea",
+    "views"
   ],
   "verbose": true,
   "execMap": {
@@ -13,10 +14,8 @@
     "restart": ""
   },
   "watch": [
-    "routes/*",
-    "bin/*",
-    "app.js",
-    "util/*"
+    "server/*",
+    "bin/*"
   ],
   "env": {
     "NODE_ENV": "development"
