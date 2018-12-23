@@ -1,4 +1,4 @@
-##  git常用命令 
+##  git常用命令   dev
 `$ git rm -r ./aa.text`  // 删除文件文件夹
 <br/>  
 `$ git add ./aa.text`  // 添加工作区文件到临时区
